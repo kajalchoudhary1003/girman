@@ -8,6 +8,14 @@ const pops = Poppins({
 });
 
 export default function Home() {
+  const handleSearch = (e) => {
+    if (e.key === 'Enter') {
+      const query = e.target.value;
+      if (query) {
+        window.location.href = `/search?query=${encodeURIComponent(query)}`;
+      }
+    }
+  }
   return (
     <div className={`pops.className h-screen`}>
       <nav className=" flex flex-row justify-around w-screen py-5 shadow-lg ">
@@ -61,6 +69,7 @@ export default function Home() {
             <Input
               placeholder="Search"
               className="focus-visible:ring-transparent border-none font-semibold text-lg text-slate-600" 
+              onKeyDown = {handleSearch}
             />
           </div>
         </div>
