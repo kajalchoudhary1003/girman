@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const pops = Poppins({
   weight: ["400", "700"],
@@ -8,19 +10,26 @@ const pops = Poppins({
 });
 
 export default function Home() {
+  const router = useRouter();
+  const handleHomeClick = () => {
+    router.push("/");
+  };
   const handleSearch = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       const query = e.target.value;
       if (query) {
         window.location.href = `/search?query=${encodeURIComponent(query)}`;
       }
     }
-  }
+  };
   return (
     <div className={`pops.className h-screen`}>
-      <nav className=" flex flex-row justify-around w-screen py-5 shadow-lg ">
-        <div className="logo flex flex-row gap-3">
-          <Image src="/images/logo1.png" width={60} height={60} />
+      <nav className=" flex flex-row justify-around w-screen py-5 relative z-20 shadow-lg bg-white ">
+        <div
+          className="logo flex flex-row gap-3 cursor-pointer"
+          onClick={handleHomeClick}
+        >
+          <Image src="/images/logo1.png" width={60} height={60} alt="logo" />
           <div className="flex flex-col items-center">
             <h1 className="font-extrabold text-4xl tracking-wide">Girman</h1>
             <h2 className="text-[10px] tracking-[0.22rem] font-bold">
@@ -33,23 +42,30 @@ export default function Home() {
             SEARCH
           </h1>
           <h1 className=" cursor-pointer hover:font-bold hover:text-primary">
-            WEBSITE
+            <Link href="https://girmantech.com">WEBSITE</Link>
           </h1>
           <h1 className=" cursor-pointer hover:font-bold hover:text-primary">
-            LINKEDIN
+            <Link href="https://www.linkedin.com/company/girmantech/">
+              LINKEDIN
+            </Link>
           </h1>
           <h1 className=" cursor-pointer hover:font-bold hover:text-primary">
-            CONTACT
+            <a href="mailto:contact@girmantech.com">CONTACT</a>
           </h1>
         </div>
       </nav>
-      <div className="main flex justify-center pt-24 h-screen">
+      <div className="main flex justify-center pt-24 h-screen bg-[url('/images/bg.png')] bg-contain bg-no-repeat bg-center">
         <div className="middle w-[700px] flex flex-col gap-1 ">
           <div className="logo flex flex-row gap-6 self-center">
-            <Image src="/images/logo2.svg" width={160} height={140} />
+            <Image
+              src="/images/logo2.svg"
+              width={160}
+              height={140}
+              alt="logo"
+            />
             <h1 className=" text-[140px] font-bold tracking-wide">Girman</h1>
           </div>
-          <div className="search flex flex-row items-center border-2 px-5 py-1 rounded-lg shadow-md">
+          <div className="search flex flex-row items-center border-2 px-5 py-1 bg-white rounded-lg shadow-md">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -68,8 +84,8 @@ export default function Home() {
             </svg>
             <Input
               placeholder="Search"
-              className="focus-visible:ring-transparent border-none font-semibold text-lg text-slate-600" 
-              onKeyDown = {handleSearch}
+              className="focus-visible:ring-transparent border-none font-semibold text-lg text-slate-600"
+              onKeyDown={handleSearch}
             />
           </div>
         </div>
