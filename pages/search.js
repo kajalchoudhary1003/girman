@@ -106,7 +106,9 @@ export default function SearchResults() {
         {loading ? (
           <p className=" text-center pt-10">Loading...</p>
         ) : error ? (
-          <p className=" text-center pt-10">An error occured. Please try again later.</p>
+          <p className=" text-center pt-10">
+            An error occured. Please try again later.
+          </p>
         ) : users.length === 0 && query ? (
           <div className="flex flex-col items-center pt-32 gap-5">
             <Image
