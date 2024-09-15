@@ -54,7 +54,7 @@ export default function Home() {
           </h1>
         </div>
       </nav>
-      <div className="main flex justify-center pt-24 h-screen bg-[url('/images/bg.png')] bg-contain bg-no-repeat bg-center">
+      <div className="main flex justify-center pt-24 h-screen bg-[url('/images/bg.png')] bg-cover bg-no-repeat bg-center">
         <div className="middle w-[700px] flex flex-col gap-1 ">
           <div className="logo flex flex-row gap-6 self-center">
             <Image
