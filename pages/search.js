@@ -105,11 +105,7 @@ export default function SearchResults() {
       <div className="h-screen ">
         {loading ? (
           <p className=" text-center pt-10">Loading...</p>
-        ) : error ? (
-          <p className=" text-center pt-10">
-            An error occured. Please try again later.
-          </p>
-        ) : users.length === 0 && query ? (
+        ) : error || users.length === 0 && query ? (
           <div className="flex flex-col items-center pt-32 gap-5">
             <Image
               src="/images/nofound.svg"
