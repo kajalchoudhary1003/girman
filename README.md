@@ -10,6 +10,12 @@
 
 ## 🎥 Demo
 
+
+https://github.com/user-attachments/assets/3cd70026-9036-47de-a8e0-006a14f09bbc
+
+
+
+
 ## 🌐 Deployed Application
 
 The application is deployed and can be accessed at: [Link](https://girmantech-kajal.vercel.app/)
